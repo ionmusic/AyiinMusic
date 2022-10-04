@@ -7,7 +7,7 @@ load_dotenv()
 # VARS
 
 get_queue = {}
-BOT_TOKEN = getenv("BOT_TOKEN")
+BOT_TOKEN = getenv("BOT_TOKEN", "5425879491:AAH6aNFn326MjsZnyjN_ilQOhMJilhdHcqs")
 API_ID = int(getenv("API_ID", "16510278"))
 API_HASH = getenv("API_HASH", "15e66907e1d030b9f203859fc4c54845")
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "300"))
