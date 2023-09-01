@@ -29,9 +29,7 @@ def download(videoid: str, mystic, title) -> str:
             speed = d["_speed_str"]
             size = d["_total_bytes_str"]
             bytesx = d["total_bytes"]
-            if str(bytesx) in flex:
-                pass
-            else:
+            if str(bytesx) not in flex:
                 flex[str(bytesx)] = 1
             if flex[str(bytesx)] == 1:
                 flex[str(bytesx)] += 1

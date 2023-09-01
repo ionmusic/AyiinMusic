@@ -25,27 +25,27 @@ UPSTREAM_REPO = getenv(
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 
-if str(getenv("SUPPORT_CHANNEL")).strip() == "":
+if not str(getenv("SUPPORT_CHANNEL")).strip():
     SUPPORT_CHANNEL = None
 else:
     SUPPORT_CHANNEL = str(getenv("SUPPORT_CHANNEL"))
-if str(getenv("SUPPORT_GROUP")).strip() == "":
+if not str(getenv("SUPPORT_GROUP")).strip():
     SUPPORT_GROUP = None
 else:
     SUPPORT_GROUP = str(getenv("SUPPORT_GROUP"))
 
 
-if str(getenv("STRING_SESSION1")).strip() == "":
+if not str(getenv("STRING_SESSION1")).strip():
     STRING1 = str(None)
 else:
     STRING1 = str(getenv("STRING_SESSION1", "BQAkQkYgZ-9NDGikteLrMShCnet53fqUP1SOkCAgV1qjCr8slr3vfL7_MGSZq92le7-aXTSHiMnupk3XSdS1k--K5pL10gX0MT5FdhHgUYQysZh-ZEsv-_lzSoeoSwSJRQeWnngFinqF00v6BgqZIOS7JaRq1eQrefz9S4w1BU15xl68PaW5ZddIIDzU6EgR8J_Ca0ZfqQiwbZmrolb-V9i89vY4jLuXKjdoh7VeMg4EXmCqnUjc0CrCfiRxhKRevsLiptMwqAIgWw_XrWshZkXGxNiiN6vXtpGxmGM_hxz9iE6j2wnM6o72ZDh6t2c_2VH7XjtaQs0NpgoI0a-C-wQ3PB1IrgA"))
 
-if str(getenv("STRING_SESSION2")).strip() == "":
+if not str(getenv("STRING_SESSION2")).strip():
     STRING2 = str(None)
 else:
     STRING2 = str(getenv("STRING_SESSION2"))
 
-if str(getenv("STRING_SESSION3")).strip() == "":
+if not str(getenv("STRING_SESSION3")).strip():
     STRING3 = str(None)
 else:
     STRING3 = str(getenv("STRING_SESSION3"))

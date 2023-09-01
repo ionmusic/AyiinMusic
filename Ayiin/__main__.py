@@ -33,8 +33,8 @@ HELPABLE = {}
 
 async def initiate_bot():
     with console.status(
-        "[magenta] Finalizing Booting...",
-    ) as status:
+            "[magenta] Finalizing Booting...",
+        ) as status:
         try:
             chats = await get_active_video_chats()
             for chat in chats:
@@ -52,16 +52,14 @@ async def initiate_bot():
         status.update(
             status="[bold blue]Scanning for Plugins", spinner="earth"
         )
-        console.print("Found {} Plugins".format(len(ALL_MODULES)) + "\n")
+        console.print(f"Found {len(ALL_MODULES)} Plugins" + "\n")
         status.update(
             status="[bold red]Importing Plugins...",
             spinner="bouncingBall",
             spinner_style="yellow",
         )
         for all_module in ALL_MODULES:
-            imported_module = importlib.import_module(
-                "Ayiin.Plugins." + all_module
-            )
+            imported_module = importlib.import_module(f"Ayiin.Plugins.{all_module}")
             if (
                 hasattr(imported_module, "__MODULE__")
                 and imported_module.__MODULE__
@@ -214,7 +212,7 @@ async def initiate_bot():
             await LOG_CLIENT.join_chat("AyiinXdSupport")
         except:
             pass
-    console.print(f"└[red] Ayiin Music Bot Completed.")
+    console.print("└[red] Ayiin Music Bot Completed.")
     if STRING1 != "None":
         await pytgcalls1.start()
     if STRING2 != "None":
@@ -407,12 +405,7 @@ All commands can be used with: /
  """
     if mod_match:
         module = mod_match.group(1)
-        text = (
-            "{} **{}**:\n".format(
-                "Here is the help for", HELPABLE[module].__MODULE__
-            )
-            + HELPABLE[module].__HELP__
-        )
+        text = f"Here is the help for **{HELPABLE[module].__MODULE__}**:\n{HELPABLE[module].__HELP__}"
         key = InlineKeyboardMarkup(
             [
                 [

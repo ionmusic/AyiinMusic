@@ -10,9 +10,7 @@ videodb = db.Ayiinvideocalls
 
 async def get_video_limit(chat_id: int) -> str:
     limit = await videodb.find_one({"chat_id": chat_id})
-    if not limit:
-        return ""
-    return limit["limit"]
+    return "" if not limit else limit["limit"]
 
 
 async def set_video_limit(chat_id: int, limit: str):
@@ -26,19 +24,12 @@ async def set_video_limit(chat_id: int, limit: str):
 
 async def get_active_video_chats() -> list:
     chats = videodb.find({"chat_id": {"$lt": 0}})
-    if not chats:
-        return []
-    chats_list = []
-    for chat in await chats.to_list(length=1000000000):
-        chats_list.append(chat)
-    return chats_list
+    return [] if not chats else list(await chats.to_list(length=1000000000))
 
 
 async def is_active_video_chat(chat_id: int) -> bool:
     chat = await videodb.find_one({"chat_id": chat_id})
-    if not chat:
-        return False
-    return True
+    return bool(chat)
 
 
 async def add_active_video_chat(chat_id: int):
